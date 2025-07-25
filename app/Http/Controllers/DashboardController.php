@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $popularBooks = DB::table('loans as l')
             ->join('books as b', 'l.book_id', '=', 'b.id')
             ->select('l.book_id', 'b.title AS book_title', DB::raw('COUNT(*) AS total'))
-            ->where('l.loan_at', '>=', Carbon::now()->subDays(30)) // Tambahkan ini
+            ->where('l.loan_at', '>=', Carbon::now()->subDays(30))
             ->groupBy('l.book_id', 'b.title')
             ->orderByDesc('total')
             ->limit(5)
