@@ -28,8 +28,7 @@
                                 <div class="col-lg-6">
                                     <div class="au-card m-b-30">
                                         <div class="au-card-inner">
-                                            <h3 class="title-2">Members Who Have Not Returned Books</h3>
-                                            <p class="text-muted mb-40">Last 30 days</p>
+                                            <h3 class="title-2 mb-40">Members Who Have Not Returned Books</h3>
                                             <table id="myTable" class="table table-borderless table-data3">
                                                 <thead>
                                                     <tr>
