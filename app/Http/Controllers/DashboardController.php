@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -15,6 +16,7 @@ class DashboardController extends Controller
         $popularBooks = DB::table('loans as l')
             ->join('books as b', 'l.book_id', '=', 'b.id')
             ->select('l.book_id', 'b.title AS book_title', DB::raw('COUNT(*) AS total'))
+            ->where('l.loan_at', '>=', Carbon::now()->subDays(30)) // Tambahkan ini
             ->groupBy('l.book_id', 'b.title')
             ->orderByDesc('total')
             ->limit(5)
